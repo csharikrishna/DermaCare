@@ -4,7 +4,7 @@
 class SymptomChecker {
     constructor() {
         // WARNING: API key should be moved to backend for production
-        this.apiKey = 'AIzaSyA-hK2NNwfssjgiAuhJb2IvLqf2Z_Zg214';
+        this.apiKey = 'GOOGLE_API_KEY';
         this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
         
         // Initialize DOM elements
