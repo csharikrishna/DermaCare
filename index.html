@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional dermatology services with AI-powered symptom checker. Expert skin care treatments, consultations, and advanced dermatological solutions.">
+    <meta name="keywords" content="dermatology, skin care, dermatologist, acne treatment, skin conditions, symptom checker">
+    <meta name="author" content="Dermatology Clinic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdermatologysite.com/">
+    <meta property="og:title" content="Expert Dermatology Care | `-Powered Skin Health">
+    <meta property="og:description" content="Professional dermatology services with AI-powered symptom checker. Expert skin care treatments and consultations.">
+    <meta property="og:image" content="./images/hero-banner.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdermatologysite.com/">
+    <meta property="twitter:title" content="Expert Dermatology Care | AI-Powered Skin Health">
+    <meta property="twitter:description" content="Professional dermatology services with AI-powered symptom checker.">
+    <meta property="twitter:image" content="./images/hero-banner.jpg">
+
+    <title>Expert Dermatology Care | AI-Powered Skin Health Solutions</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./images/logo.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/responsive.css"> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html"></a>
+                        <img src="./images/logo.png" alt="Dermatology Clinic Logo" class="logo" onclick="window.location.href='index.html'" style="cursor:pointer;">
+                        <span class="logo-text">DermaCare</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pages/about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pages/services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pages/doctors.html" class="nav-link">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pages/symptom-checker.html" class="nav-link">Symptom Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pages/contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./pages/appointments.html" class="nav-link btn-appointment">Book Appointment</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        Expert Dermatology Care with <span class="highlight">AI-Powered</span> Symptom Analysis
+                    </h1>
+                    <p class="hero-description">
+                        Get professional skin care treatment from certified dermatologists. Try our advanced AI symptom checker for instant skin condition analysis and personalized recommendations.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="./pages/symptom-checker.html" class="btn btn-primary">
+                            <i class="fas fa-robot"></i> Try Symptom Checker
+                        </a>
+                        <a href="./pages/appointments.html" class="btn btn-secondary">
+                            <i class="fas fa-calendar-alt"></i> Book Consultation
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Patients Treated</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">AI Support</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="./images/hero-banner.png" alt="Professional Dermatology Care" class="hero-img">
+                    <!-- <div class="hero-badge">
+                        <i class="fas fa-award"></i>
+                        <span>Certified Dermatologists</span>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Dermatology Services</h2>
+                    <p class="section-subtitle">Comprehensive skin care solutions for all your dermatological needs</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h3 class="service-title">Medical Dermatology</h3>
+                        <p class="service-description">Treatment of skin diseases, conditions, and disorders using advanced medical techniques.</p>
+                        <ul class="service-features">
+                            <li>Acne Treatment</li>
+                            <li>Eczema & Psoriasis</li>
+                            <li>Skin Cancer Screening</li>
+                            <li>Infectious Diseases</li>
+                        </ul>
+                        <a href="./pages/services.html#medical" class="service-link">Learn More</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <h3 class="service-title">Cosmetic Dermatology</h3>
+                        <p class="service-description">Aesthetic treatments to enhance your skin's appearance and boost confidence.</p>
+                        <ul class="service-features">
+                            <li>Botox & Fillers</li>
+                            <li>Laser Treatments</li>
+                            <li>Chemical Peels</li>
+                            <li>Anti-Aging Solutions</li>
+                        </ul>
+                        <a href="./pages/services.html#cosmetic" class="service-link">Learn More</a>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 class="service-title">AI Symptom Checker</h3>
+                        <p class="service-description">Advanced AI-powered analysis to help identify potential skin conditions instantly.</p>
+                        <ul class="service-features">
+                            <li>24/7 Availability</li>
+                            <li>Instant Analysis</li>
+                            <li>Personalized Recommendations</li>
+                            <li>Professional Follow-up</li>
+                        </ul>
+                        <a href="./pages/symptom-checker.html" class="service-link">Try Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="container">
+                <div class="why-choose-content">
+                    <div class="why-choose-text">
+                        <h2 class="section-title">Why Choose Our Dermatology Clinic?</h2>
+                        <p class="section-subtitle">Experience the perfect blend of medical expertise and cutting-edge technology</p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-md"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Board-Certified Specialists</h4>
+                                    <p>Our team consists of highly qualified and experienced dermatologists.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>AI-Powered Diagnostics</h4>
+                                    <p>Advanced artificial intelligence assists in accurate symptom analysis.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>24/7 Support</h4>
+                                    <p>Round-the-clock assistance through our AI chatbot and emergency services.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <div class="feature-content">
+                                    <h4>Privacy & Security</h4>
+                                    <p>Complete confidentiality and HIPAA-compliant data protection.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="cta-buttons">
+                            <a href="./pages/appointments.html" class="btn btn-primary">Schedule Consultation</a>
+                            <a href="./pages/about.html" class="btn btn-outline">Learn More About Us</a>
+                        </div>
+                    </div>
+                    
+                    <div class="why-choose-image">
+                        <img src="./images/treatments/dermatology-consultation.png" alt="Professional Dermatology Consultation" class="feature-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Doctors Section -->
+        <section class="doctors-preview">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Meet Our Expert Dermatologists</h2>
+                    <p class="section-subtitle">Experienced professionals dedicated to your skin health</p>
+                </div>
+                
+                <div class="doctors-grid">
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <img src="./images/doctors/dr-smith.png" alt="Dr. Sarah Smith" class="doctor-img">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Arjun Reddy</h3>
+                            <p class="doctor-specialty">Medical Dermatology Specialist</p>
+                            <p class="doctor-experience">15+ years experience</p>
+                            <div class="doctor-specialties">
+                                <span class="specialty-tag">Acne Treatment</span>
+                                <span class="specialty-tag">Skin Cancer</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <img src="./images/doctors/dr-strange.png" alt="Dr. Strange" class="doctor-img">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Strange</h3>
+                            <p class="doctor-specialty">Cosmetic Dermatology</p>
+                            <p class="doctor-experience">12+ years experience</p>
+                            <div class="doctor-specialties">
+                                <span class="specialty-tag">Laser Therapy</span>
+                                <span class="specialty-tag">Anti-Aging</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <img src="./images/doctors/dr-davis.png" alt="Dr. Emily Davis" class="doctor-img">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Maaran</h3>
+                            <p class="doctor-specialty">Pediatric Dermatology</p>
+                            <p class="doctor-experience">10+ years experience</p>
+                            <div class="doctor-specialties">
+                                <span class="specialty-tag">Pediatric Care</span>
+                                <span class="specialty-tag">Eczema</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="doctors-cta">
+                    <a href="./pages/doctors.html" class="btn btn-outline">View All Doctors</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">What Our Patients Say</h2>
+                    <p class="section-subtitle">Real experiences from real patients</p>
+                </div>
+                
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"The AI symptom checker was incredibly accurate! It helped me understand my skin condition before my appointment. Dr. Smith provided excellent treatment."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="author-name">Jessica M.</h4>
+                                <p class="author-location">New York</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Professional service with modern technology. The 24/7 chatbot support was helpful when I had concerns about my treatment."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="author-name">Robert K.</h4>
+                                <p class="author-location">California</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text">"Amazing experience! The combination of expert medical care and AI technology made my treatment journey smooth and effective."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <h4 class="author-name">Maria L.</h4>
+                                <p class="author-location">Texas</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Get Started?</h2>
+                    <p class="cta-description">Take the first step towards healthier skin with our AI-powered symptom checker or book a consultation with our expert dermatologists.</p>
+                    <div class="cta-buttons">
+                        <a href="./pages/symptom-checker.html" class="btn btn-primary btn-large">
+                            <i class="fas fa-robot"></i> Try Symptom Checker
+                        </a>
+                        <a href="./pages/appointments.html" class="btn btn-secondary btn-large">
+                            <i class="fas fa-phone"></i> Book Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="./images/logo.png" alt="DermaCare Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">DermaCare</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional dermatology services combining expert medical care with advanced AI technology for comprehensive skin health solutions.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100034414012497" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/harikrishnacs__" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/harikrishnacs__/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="http://www.linkedin.com/in/cs-harikrishna" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="./pages/about.html">About Us</a></li>
+                        <li><a href="./pages/services.html">Our Services</a></li>
+                        <li><a href="./pages/doctors.html">Meet Our Doctors</a></li>
+                        <li><a href="./pages/symptom-checker.html">Symptom Checker</a></li>
+                        <li><a href="./pages/appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="./pages/services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="./pages/services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="./pages/services.html#pediatric">Pediatric Dermatology</a></li>
+                        <li><a href="./pages/services.html#surgery">Dermatologic Surgery</a></li>
+                        <li><a href="./pages/services.html#ai">AI Diagnostics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Center Dr.<br>Healthcare City, HC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@dermacare.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 DermaCare. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="./pages/privacy.html">Privacy Policy</a>
+                        <a href="./pages/terms.html">Terms of Service</a>
+                        <a href="./pages/hipaa.html">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script type="application/javascript">
+        window.watsonAssistantChatOptions = {
+        integrationID: "c02b9cba-16d9-4091-bba0-3f9793c17147",
+        region: "us-south",
+        serviceInstanceID: "facfb8a8-7bfe-4a6d-9b2a-e40e7efda404",
+        onLoad: async (instance) => { await instance.render(); }
+        };
+
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+                (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+                "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    </script>
+    <!-- Scripts -->
+    <script src="./js/utils.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/watson-integration.js"></script>
+    <script src="./js/appointment.js"></script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalClinic",
+        "name": "DermaCare Dermatology Clinic",
+        "description": "Professional dermatology services with AI-powered symptom checker",
+        "url": "https://yourdermatologysite.com",
+        "telephone": "(555) 123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Medical Center Dr.",
+            "addressLocality": "Healthcare City",
+            "addressRegion": "HC",
+            "postalCode": "12345"
+        },
+        "medicalSpecialty": "Dermatology",
+        "availableService": [
+            {
+                "@type": "MedicalTherapy",
+                "name": "Medical Dermatology"
+            },
+            {
+                "@type": "MedicalTherapy", 
+                "name": "Cosmetic Dermatology"
+            },
+            {
+                "@type": "MedicalTherapy",
+                "name": "AI Symptom Analysis"
+            }
+        ]
+    }
+    </script>
+</body>
+</html>

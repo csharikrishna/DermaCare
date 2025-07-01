@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book your dermatology appointment at DermaCare. Schedule consultations with board-certified dermatologists for expert skin care treatment.">
+    <meta name="keywords" content="book dermatology appointment, dermatologist consultation, skin care appointment, DermaCare booking">
+    <meta name="author" content="Dermatology Clinic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdermatologysite.com/pages/appointments.html">
+    <meta property="og:title" content="Book Appointment | DermaCare Dermatology Clinic">
+    <meta property="og:description" content="Schedule your dermatology appointment with board-certified experts at DermaCare. Easy online booking available.">
+    <meta property="og:image" content="../images/appointments-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdermatologysite.com/pages/appointments.html">
+    <meta property="twitter:title" content="Book Appointment | DermaCare Dermatology Clinic">
+    <meta property="twitter:description" content="Schedule your dermatology appointment with board-certified experts at DermaCare.">
+    <meta property="twitter:image" content="../images/appointments-og.jpg">
+
+    <title>Book Appointment | DermaCare Dermatology Clinic</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Page Specific Styles -->
+    <style>
+        .appointments-hero {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(74, 123, 200, 0.9)), url('../images/appointments/appointment-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        
+        .appointment-section {
+            padding: 4rem 0;
+            background: var(--bg-section);
+        }
+        
+        .appointment-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .appointment-form-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .appointment-info-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            padding: 0.875rem 1rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            transition: var(--transition);
+            background: white;
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .appointment-type-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .appointment-type-option {
+            position: relative;
+        }
+        
+        .appointment-type-radio {
+            display: none;
+        }
+        
+        .appointment-type-label {
+            display: block;
+            padding: 1rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            background: white;
+        }
+        
+        .appointment-type-radio:checked + .appointment-type-label {
+            border-color: var(--primary-color);
+            background: rgba(44, 90, 160, 0.05);
+            color: var(--primary-color);
+        }
+        
+        .urgency-options {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+        
+        .urgency-option {
+            flex: 1;
+        }
+        
+        .urgency-radio {
+            display: none;
+        }
+        
+        .urgency-label {
+            display: block;
+            padding: 0.75rem;
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+            background: white;
+        }
+        
+        .urgency-radio:checked + .urgency-label {
+            border-color: var(--primary-color);
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-book-appointment {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-book-appointment:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(44, 90, 160, 0.3);
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: var(--border-radius);
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .info-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--text-dark);
+        }
+        
+        .info-content p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .emergency-banner {
+            background: linear-gradient(135deg, var(--accent-color), #e74c3c);
+            color: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .emergency-banner h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .emergency-banner p {
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+        
+        .btn-emergency {
+            background: white;
+            color: var(--accent-color);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .btn-emergency:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+        
+        .insurance-accepted {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+        }
+        
+        .insurance-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        
+        .insurance-item {
+            text-align: center;
+            padding: 0.5rem;
+            background: white;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            color: var(--text-medium);
+        }
+        
+        .consultation-types {
+            margin: 2rem 0;
+        }
+        
+        .type-card {
+            background: white;
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 1rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+        
+        .type-card:hover {
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px rgba(44, 90, 160, 0.1);
+        }
+        
+        .type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .type-name {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .type-duration {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .type-description {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        @media (max-width: 768px) {
+            .appointment-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .appointment-info-card {
+                position: static;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .appointment-type-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../images/logo.png" alt="Dermatology Clinic Logo" class="logo">
+                    <span class="logo-text">DermaCare</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./doctors.html" class="nav-link">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./symptom-checker.html" class="nav-link">Symptom Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./appointments.html" class="nav-link btn-appointment active">Book Appointment</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="appointments-hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    Book Your Dermatology Appointment
+                </h1>
+                <p class="hero-description" style="font-size: 1.2rem; margin: 1rem auto; max-width: 700px; color: #F0F0F0">
+                    Schedule a consultation with our board-certified dermatologists. Expert care for all your skin health needs.
+                </p>
+            </div>
+        </section>
+
+        <!-- Appointment Booking Section -->
+        <section class="appointment-section">
+            <div class="appointment-container">
+                <!-- Main Booking Form -->
+                <div class="appointment-form-card">
+                    <h2 style="margin-bottom: 2rem; color: var(--text-dark); font-family: var(--font-heading);">
+                        Schedule Your Appointment
+                    </h2>
+                    
+                    <form id="appointmentForm" action="#" method="POST">
+                        <!-- Patient Information -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="dateOfBirth">Date of Birth</label>
+                                <input type="date" id="dateOfBirth" name="dateOfBirth" class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="gender">Gender</label>
+                                <select id="gender" name="gender" class="form-select">
+                                    <option value="">Select Gender</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                    <option value="other">Other</option>
+                                    <option value="prefer-not-to-say">Prefer not to say</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Appointment Details -->
+                        <div class="form-group full-width">
+                            <label class="form-label">Appointment Type *</label>
+                            <div class="appointment-type-grid">
+                                <div class="appointment-type-option">
+                                    <input type="radio" id="consultation" name="appointmentType" value="consultation" class="appointment-type-radio" required>
+                                    <label for="consultation" class="appointment-type-label">
+                                        <i class="fas fa-user-md"></i><br>
+                                        New Consultation
+                                    </label>
+                                </div>
+                                
+                                <div class="appointment-type-option">
+                                    <input type="radio" id="followup" name="appointmentType" value="followup" class="appointment-type-radio">
+                                    <label for="followup" class="appointment-type-label">
+                                        <i class="fas fa-redo"></i><br>
+                                        Follow-up Visit
+                                    </label>
+                                </div>
+                                
+                                <div class="appointment-type-option">
+                                    <input type="radio" id="cosmetic" name="appointmentType" value="cosmetic" class="appointment-type-radio">
+                                    <label for="cosmetic" class="appointment-type-label">
+                                        <i class="fas fa-spa"></i><br>
+                                        Cosmetic Consultation
+                                    </label>
+                                </div>
+                                
+                                <div class="appointment-type-option">
+                                    <input type="radio" id="screening" name="appointmentType" value="screening" class="appointment-type-radio">
+                                    <label for="screening" class="appointment-type-label">
+                                        <i class="fas fa-search"></i><br>
+                                        Skin Cancer Screening
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="preferredDoctor">Preferred Doctor</label>
+                                <select id="preferredDoctor" name="preferredDoctor" class="form-select">
+                                    <option value="">No Preference</option>
+                                    <option value="dr-smith">Dr. Sarah Smith (Medical Dermatology)</option>
+                                    <option value="dr-johnson">Dr. Michael Johnson (Cosmetic Dermatology)</option>
+                                    <option value="dr-davis">Dr. Emily Davis (Pediatric Dermatology)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="preferredDate">Preferred Date *</label>
+                                <input type="date" id="preferredDate" name="preferredDate" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="preferredTime">Preferred Time</label>
+                                <select id="preferredTime" name="preferredTime" class="form-select">
+                                    <option value="">Select Time</option>
+                                    <option value="morning">Morning (8AM - 12PM)</option>
+                                    <option value="afternoon">Afternoon (12PM - 5PM)</option>
+                                    <option value="evening">Evening (5PM - 7PM)</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="visitType">Visit Type</label>
+                                <select id="visitType" name="visitType" class="form-select">
+                                    <option value="in-person">In-Person Visit</option>
+                                    <option value="telemedicine">Telemedicine (Video Call)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Urgency Level -->
+                        <div class="form-group full-width">
+                            <label class="form-label">Urgency Level</label>
+                            <div class="urgency-options">
+                                <div class="urgency-option">
+                                    <input type="radio" id="routine" name="urgency" value="routine" class="urgency-radio" checked>
+                                    <label for="routine" class="urgency-label">Routine</label>
+                                </div>
+                                <div class="urgency-option">
+                                    <input type="radio" id="urgent" name="urgency" value="urgent" class="urgency-radio">
+                                    <label for="urgent" class="urgency-label">Urgent</label>
+                                </div>
+                                <div class="urgency-option">
+                                    <input type="radio" id="asap" name="urgency" value="asap" class="urgency-radio">
+                                    <label for="asap" class="urgency-label">ASAP</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Insurance Information -->
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label class="form-label" for="insurance">Insurance Provider</label>
+                                <select id="insurance" name="insurance" class="form-select">
+                                    <option value="">Select Insurance</option>
+                                    <option value="aetna">Aetna</option>
+                                    <option value="blue-cross">Blue Cross Blue Shield</option>
+                                    <option value="cigna">Cigna</option>
+                                    <option value="united">United Healthcare</option>
+                                    <option value="medicare">Medicare</option>
+                                    <option value="medicaid">Medicaid</option>
+                                    <option value="self-pay">Self-Pay</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="memberId">Member ID</label>
+                                <input type="text" id="memberId" name="memberId" class="form-input" placeholder="Insurance Member ID">
+                            </div>
+                        </div>
+
+                        <!-- Reason for Visit -->
+                        <div class="form-group full-width">
+                            <label class="form-label" for="reasonForVisit">Reason for Visit *</label>
+                            <textarea id="reasonForVisit" name="reasonForVisit" class="form-textarea" placeholder="Please describe your skin concern or reason for the appointment..." required></textarea>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div class="form-group full-width">
+                            <label class="form-label" for="additionalNotes">Additional Notes</label>
+                            <textarea id="additionalNotes" name="additionalNotes" class="form-textarea" placeholder="Any additional information, special requests, or medical history relevant to your visit..."></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn-book-appointment">
+                            <i class="fas fa-calendar-check"></i>
+                            Book Appointment
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Appointment Information Sidebar -->
+                <div class="appointment-info-card">
+                    <!-- Emergency Notice -->
+                    <div class="emergency-banner">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Emergency?</h3>
+                        <p>For urgent skin conditions or medical emergencies, please call us immediately.</p>
+                        <a href="tel:(555)123-4567" class="btn-emergency">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                    </div>
+
+                    <!-- Appointment Information -->
+                    <h3 style="margin-bottom: 1.5rem; color: var(--text-dark);">Appointment Information</h3>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Response Time</h4>
+                            <p>We'll confirm your appointment within 24 hours during business days.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Availability</h4>
+                            <p>Mon-Fri: 8AM-6PM<br>Saturday: 9AM-4PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>New Patients</h4>
+                            <p>New patient consultations typically take 45-60 minutes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Privacy</h4>
+                            <p>All information is kept confidential and HIPAA compliant.</p>
+                        </div>
+                    </div>
+
+                    <!-- Consultation Types -->
+                    <div class="consultation-types">
+                        <h4 style="margin-bottom: 1rem; color: var(--text-dark);">Consultation Types</h4>
+                        
+                        <div class="type-card">
+                            <div class="type-header">
+                                <span class="type-name">New Consultation</span>
+                                <span class="type-duration">60 min</span>
+                            </div>
+                            <p class="type-description">Comprehensive evaluation for new patients with detailed medical history and examination.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <div class="type-header">
+                                <span class="type-name">Follow-up Visit</span>
+                                <span class="type-duration">30 min</span>
+                            </div>
+                            <p class="type-description">Progress check and treatment adjustments for existing patients.</p>
+                        </div>
+                        
+                        <div class="type-card">
+                            <div class="type-header">
+                                <span class="type-name">Cosmetic Consultation</span>
+                                <span class="type-duration">45 min</span>
+                            </div>
+                            <p class="type-description">Aesthetic treatment planning and cosmetic procedure consultation.</p>
+                        </div>
+                    </div>
+
+                    <!-- Insurance Accepted -->
+                    <div class="insurance-accepted">
+                        <h4 style="margin-bottom: 1rem; color: var(--text-dark);">Insurance Accepted</h4>
+                        <div class="insurance-grid">
+                            <div class="insurance-item">Aetna</div>
+                            <div class="insurance-item">Blue Cross</div>
+                            <div class="insurance-item">Cigna</div>
+                            <div class="insurance-item">United</div>
+                            <div class="insurance-item">Medicare</div>
+                            <div class="insurance-item">Medicaid</div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-medium); margin-top: 1rem;">
+                            Contact us to verify coverage for your specific plan.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="DermaCare Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">DermaCare</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional dermatology services combining expert medical care with advanced AI technology for comprehensive skin health solutions.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100034414012497" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/harikrishnacs__" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/harikrishnacs__/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="http://www.linkedin.com/in/cs-harikrishna" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Our Services</a></li>
+                        <li><a href="./doctors.html">Meet Our Doctors</a></li>
+                        <li><a href="./symptom-checker.html">Symptom Checker</a></li>
+                        <li><a href="./appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="./services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="./services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="./services.html#pediatric">Pediatric Dermatology</a></li>
+                        <li><a href="./services.html#surgery">Dermatologic Surgery</a></li>
+                        <li><a href="./services.html#ai">AI Diagnostics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Center Dr.<br>Healthcare City, HC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@dermacare.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 DermaCare. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="./privacy.html">Privacy Policy</a>
+                        <a href="./terms.html">Terms of Service</a>
+                        <a href="./hipaa.html">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="./js/watson-integration.js"></script>
+    <script src="../js/appointment.js"></script>
+    <script type="application/javascript">
+        window.watsonAssistantChatOptions = {
+        integrationID: "c02b9cba-16d9-4091-bba0-3f9793c17147",
+        region: "us-south",
+        serviceInstanceID: "facfb8a8-7bfe-4a6d-9b2a-e40e7efda404",
+        onLoad: async (instance) => { await instance.render(); }
+        };
+
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+                (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+                "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    </script
+    <!-- Form Handling Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('appointmentForm');
+            const dateInput = document.getElementById('preferredDate');
+            
+            // Set minimum date to today
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+            
+            // Form submission handling
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Here you would typically send the form data to your server
+                // For now, we'll show a success message
+                alert('Thank you for booking an appointment! We will contact you within 24 hours to confirm your appointment.');
+                
+                // You can add actual form submission logic here
+                // Example: fetch('/api/appointments', { method: 'POST', body: new FormData(form) })
+            });
+            
+            // Phone number formatting
+            const phoneInput = document.getElementById('phone');
+            phoneInput.addEventListener('input', function(e) {
+                let value = e.target.value.replace(/\D/g, '');
+                let formattedValue = '';
+                
+                if (value.length > 0) {
+                    if (value.length <= 3) {
+                        formattedValue = `(${value}`;
+                    } else if (value.length <= 6) {
+                        formattedValue = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+                    } else {
+                        formattedValue = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6, 10)}`;
+                    }
+                }
+                
+                e.target.value = formattedValue;
+            });
+        });
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "DermaCare Dermatology Clinic",
+        "description": "Book appointments with board-certified dermatologists at DermaCare",
+        "url": "https://yourdermatologysite.com/pages/appointments.html",
+        "telephone": "(555) 123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Medical Center Dr.",
+            "addressLocality": "Healthcare City",
+            "addressRegion": "HC",
+            "postalCode": "12345"
+        },
+        "openingHours": [
+            "Mo-Fr 08:00-18:00",
+            "Sa 09:00-16:00"
+        ],
+        "medicalSpecialty": "Dermatology",
+        "availableService": [
+            {
+                "@type": "MedicalTherapy",
+                "name": "Dermatology Consultation"
+            },
+            {
+                "@type": "MedicalTherapy",
+                "name": "Skin Cancer Screening"
+            },
+            {
+                "@type": "MedicalTherapy",
+                "name": "Cosmetic Dermatology"
+            }
+        ]
+    }
+    </script>
+</body>
+</html>

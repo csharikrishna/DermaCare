@@ -1,0 +1,1249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional dermatology symptom checker. Get instant analysis of your skin conditions with our advanced diagnostic tool.">
+    <meta name="keywords" content="dermatology symptom checker, skin analysis, skin condition checker, dermatology diagnostic">
+    <meta name="author" content="DermaCare Clinic">
+    
+    <title>Professional Symptom Checker | Advanced Dermatology Analysis - DermaCare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .doctors-hero {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(74, 123, 200, 0.9)), url('../images/doctors/clinic-team.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e8eb;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .doctor-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+        
+        .doctor-specialty {
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .specialty-tag {
+            background: #f4f6f8;
+            color: #5d6d7e;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Custom Symptom Checker Styles */
+        .checker-main {
+            padding: 3rem 0;
+            background: #f8f9fa;
+            min-height: 60vh;
+        }
+        
+        .checker-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .symptom-input-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .symptom-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e5e8eb;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+        }
+        
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #2c5aa0;
+            box-shadow: 0 0 0 3px rgba(44, 90, 160, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .analyze-btn {
+            background: linear-gradient(135deg, #2c5aa0, #4a7bc8);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .analyze-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(44, 90, 160, 0.3);
+        }
+        
+        .analyze-btn:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .results-card {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+            border-left: 5px solid #2c5aa0;
+            position: relative;
+            z-index: 100;
+        }
+        
+        /* FIXED: Ensure results are visible */
+        .results-card.show {
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .result-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .condition-match {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .condition-name {
+            font-weight: 600;
+            color: #155724;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .confidence-level {
+            background: #2c5aa0;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .recommendations {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .disclaimer-section {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .disclaimer-title {
+            color: #721c24;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .step-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .step-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #2c5aa0, #4a7bc8);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2c5aa0, #4a7bc8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem auto;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .hidden {
+            display: none !important;
+        }
+        
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ffffff;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        .ai-analysis {
+            background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
+            border: 2px solid #2c5aa0;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            /* FIXED: Force visibility */
+            display: block !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+        }
+        
+        .ai-badge {
+            background: linear-gradient(135deg, #2c5aa0, #4a7bc8);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .analysis-content {
+            color: #2c3e50 !important;
+            line-height: 1.7;
+            font-size: 1rem;
+            /* FIXED: Force text visibility */
+            display: block !important;
+            opacity: 1 !important;
+        }
+        
+        .analysis-content h3,
+        .analysis-content h4 {
+            color: #2c5aa0 !important;
+            margin: 1.5rem 0 0.8rem 0;
+            font-weight: 600;
+            display: block !important;
+        }
+        
+        .analysis-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+            display: block !important;
+        }
+        
+        .analysis-content li {
+            margin-bottom: 0.5rem;
+            display: list-item !important;
+        }
+        
+        .analysis-content p {
+            margin-bottom: 1rem;
+            display: block !important;
+        }
+        
+        .urgency-high {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        
+        .urgency-medium {
+            background: #fff3cd;
+            border-color: #ffc107;
+            color: #856404;
+        }
+        
+        .urgency-low {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        
+        .error-message {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: center;
+            /* FIXED: Force error visibility */
+            display: block !important;
+            opacity: 1 !important;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../images/logo.png" alt="Dermatology Clinic Logo" class="logo">
+                    <span class="logo-text">DermaCare</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./doctors.html" class="nav-link">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./symptom-checker.html" class="nav-link active">Symptom Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./appointments.html" class="nav-link btn-appointment">Book Appointment</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="doctors-hero">
+            <div class="container">
+                <h1 class="hero-title" style="font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 1rem;">
+                    <i class="fas fa-stethoscope"></i>
+                    AI-Powered Symptom Checker
+                </h1>
+                <p class="hero-description" style="font-size: 1.2rem; margin: 1rem auto; max-width: 700px; opacity: 0.9; color: #F0F0F0">
+                    Get instant AI analysis of your skin symptoms with our advanced diagnostic tool powered by Google Gemini. 
+                    Answer detailed questions to receive personalized recommendations and guidance.
+                </p>
+                <div class="specialty-tag" style="background: rgba(255,255,255,0.2); color: white; border: 1px solid rgba(255,255,255,0.3);">
+                    <i class="fas fa-robot"></i>
+                    <span>AI-Powered Analysis</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="checker-main">
+            <div class="checker-container">
+                <!-- How It Works -->
+                <div class="doctor-card" style="padding: 3rem; margin-bottom: 3rem;">
+                    <h2 class="doctor-name" style="font-size: 2rem; text-align: center; margin-bottom: 2rem;">
+                        How Our AI Symptom Checker Works
+                    </h2>
+                    
+                    <div class="step-cards">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <div class="step-icon">
+                                <i class="fas fa-edit"></i>
+                            </div>
+                            <h3 class="doctor-specialty">Describe Symptoms</h3>
+                            <p>Fill out our comprehensive form with detailed information about your skin condition.</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <div class="step-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3 class="doctor-specialty">AI Analysis</h3>
+                            <p>Our Google Gemini AI analyzes your symptoms using advanced medical knowledge and pattern recognition.</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <div class="step-icon">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <h3 class="doctor-specialty">Get AI Results</h3>
+                            <p>Receive detailed AI-powered analysis with potential conditions and professional recommendations.</p>
+                        </div>
+                        
+                        <div class="step-card">
+                            <div class="step-number">4</div>
+                            <div class="step-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <h3 class="doctor-specialty">Professional Care</h3>
+                            <p>Based on AI results, consider scheduling a consultation with our dermatologists.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Symptom Input Card with PROPER FORM STRUCTURE -->
+                <div class="symptom-input-card">
+                    <h2 class="doctor-name" style="text-align: center; margin-bottom: 2rem;">
+                        <i class="fas fa-microscope"></i>
+                        Start Your AI Symptom Analysis
+                    </h2>
+                    
+                    <!-- PROPER FORM ELEMENT FOR EXTERNAL JS -->
+                    <form id="symptom-form" class="symptom-form">
+                        <div class="form-group">
+                            <label class="form-label" for="primary-symptom">
+                                <i class="fas fa-exclamation-circle"></i>
+                                What is your primary symptom?
+                            </label>
+                            <select class="form-select" id="primary-symptom" required>
+                                <option value="">Select your main symptom</option>
+                                <option value="rash">Rash or skin irritation</option>
+                                <option value="acne">Acne or breakouts</option>
+                                <option value="dryness">Dry or flaky skin</option>
+                                <option value="redness">Redness or inflammation</option>
+                                <option value="itching">Itching or burning</option>
+                                <option value="bumps">Bumps or unusual growths</option>
+                                <option value="discoloration">Skin discoloration</option>
+                                <option value="hair-loss">Hair loss</option>
+                                <option value="nail-issues">Nail problems</option>
+                                <option value="other">Other skin concern</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="affected-area">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Where is the affected area?
+                            </label>
+                            <select class="form-select" id="affected-area" required>
+                                <option value="">Select affected area</option>
+                                <option value="face">Face</option>
+                                <option value="scalp">Scalp</option>
+                                <option value="neck">Neck</option>
+                                <option value="chest">Chest</option>
+                                <option value="back">Back</option>
+                                <option value="arms">Arms</option>
+                                <option value="hands">Hands</option>
+                                <option value="legs">Legs</option>
+                                <option value="feet">Feet</option>
+                                <option value="multiple">Multiple areas</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="duration">
+                                <i class="fas fa-clock"></i>
+                                How long have you had this symptom?
+                            </label>
+                            <select class="form-select" id="duration" required>
+                                <option value="">Select duration</option>
+                                <option value="1-3-days">1-3 days</option>
+                                <option value="1-week">About 1 week</option>
+                                <option value="2-4-weeks">2-4 weeks</option>
+                                <option value="1-3-months">1-3 months</option>
+                                <option value="3-6-months">3-6 months</option>
+                                <option value="over-6-months">Over 6 months</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="severity">
+                                <i class="fas fa-thermometer-half"></i>
+                                How would you rate the severity?
+                            </label>
+                            <select class="form-select" id="severity" required>
+                                <option value="">Select severity level</option>
+                                <option value="mild">Mild - Minor discomfort</option>
+                                <option value="moderate">Moderate - Noticeable symptoms</option>
+                                <option value="severe">Severe - Significant impact on daily life</option>
+                                <option value="very-severe">Very Severe - Extremely bothersome</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="age">
+                                <i class="fas fa-user"></i>
+                                Your age range:
+                            </label>
+                            <select class="form-select" id="age" required>
+                                <option value="">Select age range</option>
+                                <option value="under-18">Under 18</option>
+                                <option value="18-30">18-30</option>
+                                <option value="31-45">31-45</option>
+                                <option value="46-60">46-60</option>
+                                <option value="over-60">Over 60</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="additional-symptoms">
+                                <i class="fas fa-list"></i>
+                                Additional symptoms (check all that apply):
+                            </label>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="additional" value="pain"> Pain
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="additional" value="swelling"> Swelling
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="additional" value="fever"> Fever
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="additional" value="pus"> Pus or discharge
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="additional" value="bleeding"> Bleeding
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem;">
+                                    <input type="checkbox" name="additional" value="spreading"> Spreading
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="description">
+                                <i class="fas fa-comment"></i>
+                                Please describe your symptoms in detail:
+                            </label>
+                            <textarea class="form-textarea" id="description" 
+                                placeholder="Describe your symptoms, when they started, what makes them better/worse, any treatments you've tried, etc. Be as detailed as possible for better AI analysis." 
+                                required></textarea>
+                        </div>
+
+                        <!-- BUTTON WITHOUT ONCLICK HANDLER - EXTERNAL JS WILL HANDLE -->
+                        <button type="submit" class="analyze-btn" id="analyze-btn">
+                            <i class="fas fa-robot"></i>
+                            Analyze My Symptoms with AI
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-card hidden" id="results-section">
+                    <div class="result-title">
+                        <i class="fas fa-clipboard-check"></i>
+                        Your AI Symptom Analysis Results
+                    </div>
+                    <div id="analysis-results"></div>
+                </div>
+
+                <!-- Important Disclaimer -->
+                <div class="disclaimer-section">
+                    <h3 class="disclaimer-title">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Important Medical Disclaimer
+                    </h3>
+                    <div style="color: #721c24; line-height: 1.6;">
+                        <p><strong>This AI symptom checker is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment.</strong></p>
+                        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                            <li>AI analysis is based on patterns and should not replace professional medical consultation</li>
+                            <li>Always consult a qualified dermatologist for proper diagnosis</li>
+                            <li>Seek immediate medical attention for severe or rapidly changing symptoms</li>
+                            <li>This tool cannot diagnose skin cancer or other serious conditions</li>
+                            <li>Results are based on the information you provide and may not be complete</li>
+                        </ul>
+                        <p><strong>If you have any concerns about your skin health, please schedule an appointment with our dermatologists.</strong></p>
+                    </div>
+                </div>
+
+                <!-- CTA After Analysis -->
+                <div class="doctor-card" style="background: linear-gradient(135deg, #2c5aa0, #4a7bc8); color: white; text-align: center; padding: 3rem;">
+                    <h3 class="doctor-name" style="color: white; margin-bottom: 1rem;">
+                        Need Professional Care?
+                    </h3>
+                    <p style="margin-bottom: 2rem; opacity: 0.9;">
+                        Based on your AI analysis, consider scheduling a consultation with our board-certified dermatologists for proper diagnosis and treatment.
+                    </p>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="./appointments.html" class="btn btn-secondary btn-large" style="background: white; color: #2c5aa0; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600;">
+                            <i class="fas fa-calendar-alt"></i> Book Consultation
+                        </a>
+                        <a href="./contact.html" class="btn btn-outline" style="border: 2px solid white; color: white; padding: 1rem 2rem; border-radius: 10px; text-decoration: none; font-weight: 600;">
+                            <i class="fas fa-phone"></i> Contact Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="DermaCare Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">DermaCare</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional dermatology services combining expert medical care with advanced AI diagnostic technology for comprehensive skin health solutions.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100034414012497" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/harikrishnacs__" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/harikrishnacs__/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="http://www.linkedin.com/in/cs-harikrishna" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Our Services</a></li>
+                        <li><a href="./doctors.html">Meet Our Doctors</a></li>
+                        <li><a href="./symptom-checker.html">AI Symptom Checker</a></li>
+                        <li><a href="./appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="./services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="./services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="./services.html#pediatric">Pediatric Dermatology</a></li>
+                        <li><a href="./services.html#surgery">Dermatologic Surgery</a></li>
+                        <li><a href="./services.html#diagnostics">AI-Powered Diagnostics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Center Dr.<br>Healthcare City, HC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@dermacare.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 DermaCare. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="./privacy.html">Privacy Policy</a>
+                        <a href="./terms.html">Terms of Service</a>
+                        <a href="./hipaa.html">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="./js/watson-integration.js"></script>
+    <script type="application/javascript">
+        window.watsonAssistantChatOptions = {
+        integrationID: "c02b9cba-16d9-4091-bba0-3f9793c17147",
+        region: "us-south",
+        serviceInstanceID: "facfb8a8-7bfe-4a6d-9b2a-e40e7efda404",
+        onLoad: async (instance) => { await instance.render(); }
+        };
+
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+                (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+                "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    </script>
+    <!-- CLEAN EMBEDDED SYMPTOM CHECKER SCRIPT -->
+    <script>
+        class SymptomChecker {
+            constructor() {
+                this.apiKey = 'AIzaSyA-hK2NNwfssjgiAuhJb2IvLqf2Z_Zg214';
+                this.apiUrl = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent';
+                
+                this.form = document.getElementById('symptom-form');
+                this.analyzeBtn = document.getElementById('analyze-btn');
+                this.resultsSection = document.getElementById('results-section');
+                this.resultsContainer = document.getElementById('analysis-results');
+                
+                this.init();
+            }
+
+            init() {
+                if (this.form) {
+                    this.form.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        this.processSymptoms();
+                    });
+                }
+                
+                this.analyzeBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    this.processSymptoms();
+                });
+                
+                console.log('Symptom Checker initialized successfully');
+            }
+
+            async processSymptoms() {
+                console.log('Starting symptom analysis...');
+                
+                const formData = this.collectFormData();
+                if (!this.validateFormData(formData)) {
+                    alert('Please fill in all required fields');
+                    return;
+                }
+
+                this.setLoadingState(true);
+                
+                try {
+                    const prompt = this.generateMedicalPrompt(formData);
+                    const response = await this.callGeminiAPIWithRetry(prompt);
+                    this.displayResults(response, formData);
+                } catch (error) {
+                    console.error('Symptom analysis error:', error);
+                    this.handleAnalysisError(error);
+                } finally {
+                    this.setLoadingState(false);
+                }
+            }
+
+            collectFormData() {
+                const additionalSymptoms = Array.from(
+                    document.querySelectorAll('input[name="additional"]:checked')
+                ).map(cb => cb.value);
+
+                return {
+                    primarySymptom: document.getElementById('primary-symptom').value,
+                    affectedArea: document.getElementById('affected-area').value,
+                    duration: document.getElementById('duration').value,
+                    severity: document.getElementById('severity').value,
+                    age: document.getElementById('age').value,
+                    description: document.getElementById('description').value,
+                    additionalSymptoms: additionalSymptoms
+                };
+            }
+
+            validateFormData(data) {
+                const requiredFields = ['primarySymptom', 'affectedArea', 'duration', 'severity', 'age', 'description'];
+                const missingFields = requiredFields.filter(field => !data[field] || data[field] === '');
+                
+                if (missingFields.length > 0) {
+                    console.log('Missing required fields:', missingFields);
+                    return false;
+                }
+                
+                if (data.description.length < 10) {
+                    alert('Please provide a more detailed description (at least 10 characters)');
+                    return false;
+                }
+                
+                return true;
+            }
+
+            generateMedicalPrompt(data) {
+                return `You are a professional dermatology AI assistant. Analyze the following skin symptoms and provide a structured medical assessment.
+
+PATIENT INFORMATION:
+- Age Range: ${data.age}
+- Primary Symptom: ${data.primarySymptom}
+- Affected Area: ${data.affectedArea}
+- Duration: ${data.duration}
+- Severity: ${data.severity}
+- Additional Symptoms: ${data.additionalSymptoms.length > 0 ? data.additionalSymptoms.join(', ') : 'None reported'}
+
+DETAILED DESCRIPTION:
+${data.description}
+
+Please provide a comprehensive analysis in the following format:
+
+## SYMPTOM ANALYSIS
+
+### Possible Conditions
+List 2-3 most likely dermatological conditions based on the symptoms, with brief explanations.
+
+### Urgency Assessment
+Categorize as: LOW, MEDIUM, or HIGH urgency with reasoning.
+
+### Immediate Care Recommendations
+Provide 3-4 specific, actionable care recommendations.
+
+### When to Seek Professional Care
+Specify when medical consultation is needed.
+
+### General Skin Care Tips
+Provide 2-3 general tips for the affected area.
+
+IMPORTANT: Always emphasize that this is an AI analysis and not a medical diagnosis. Recommend professional dermatological consultation for accurate diagnosis and treatment.`;
+            }
+
+            async callGeminiAPIWithRetry(prompt, maxRetries = 3) {
+                for (let attempt = 1; attempt <= maxRetries; attempt++) {
+                    try {
+                        console.log(`API attempt ${attempt} of ${maxRetries}`);
+                        return await this.callGeminiAPI(prompt);
+                    } catch (error) {
+                        console.log(`API attempt ${attempt} failed:`, error.message);
+                        
+                        if (attempt === maxRetries) {
+                            throw error;
+                        }
+                        
+                        const waitTime = 1000 * Math.pow(2, attempt - 1);
+                        await new Promise(resolve => setTimeout(resolve, waitTime));
+                    }
+                }
+            }
+
+            async callGeminiAPI(prompt) {
+                const requestBody = {
+                    contents: [{
+                        parts: [{ text: prompt }]
+                    }],
+                    generationConfig: {
+                        temperature: 0.4,
+                        topK: 32,
+                        topP: 0.9,
+                        maxOutputTokens: 2048
+                    }
+                };
+
+                const response = await fetch(`${this.apiUrl}?key=${this.apiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestBody)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API Error: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+                    return data.candidates[0].content.parts[0].text;
+                }
+                
+                return this.generateFallbackResponse();
+            }
+
+            generateFallbackResponse() {
+                return `## SYMPTOM ANALYSIS
+
+### Possible Conditions
+Based on the symptoms described, this could be related to:
+1. **Contact Dermatitis** - Skin reaction to an irritant or allergen
+2. **Eczema (Atopic Dermatitis)** - Chronic inflammatory skin condition
+3. **Allergic Reaction** - Response to environmental or topical allergens
+
+### Urgency Assessment
+**LOW to MEDIUM** urgency - While these symptoms may be uncomfortable, they typically don't require emergency care.
+
+### Immediate Care Recommendations
+1. **Avoid scratching** the affected area to prevent further irritation
+2. **Apply cool compresses** for 10-15 minutes several times daily
+3. **Use gentle, fragrance-free moisturizer** to keep skin hydrated
+4. **Identify and avoid potential triggers** like new soaps or detergents
+
+### When to Seek Professional Care
+- If symptoms worsen or spread to other areas
+- If you develop fever or signs of infection
+- If the condition persists for more than 2 weeks
+- If you experience severe itching that interferes with sleep
+
+### General Skin Care Tips
+1. **Use lukewarm water** when washing the affected area
+2. **Pat dry gently** rather than rubbing with towels
+3. **Choose hypoallergenic products** designed for sensitive skin
+
+**IMPORTANT DISCLAIMER:** This is an AI-generated analysis and should not replace professional medical advice. Please consult with a qualified dermatologist for accurate diagnosis.`;
+            }
+
+            displayResults(aiResponse, formData) {
+                console.log('Displaying analysis results...');
+                
+                const urgency = this.parseUrgency(aiResponse);
+                const cleanHTML = this.cleanMarkdownToHTML(aiResponse);
+                
+                const html = `
+                    <div class="ai-analysis fade-in">
+                        <div class="ai-badge">
+                            <i class="fas fa-robot"></i>
+                            AI-Powered Analysis by Google Gemini
+                        </div>
+                        
+                        <div class="urgency-assessment ${urgency.class}" style="padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; text-align: center; border: 2px solid;">
+                            <h4 style="margin: 0 0 0.5rem 0; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                                <i class="fas fa-exclamation-circle"></i> 
+                                Urgency Level: ${urgency.level}
+                            </h4>
+                            <p style="margin: 0; font-weight: 500;">${urgency.message}</p>
+                        </div>
+                        
+                        <div class="analysis-content">
+                            ${cleanHTML}
+                        </div>
+                    </div>
+                    
+                    <div class="recommendations" style="margin-top: 2rem; background: #f8f9fa; border-radius: 10px; padding: 2rem; border-left: 4px solid #2c5aa0;">
+                        <h4 style="color: #2c5aa0; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-lightbulb"></i> Next Steps
+                        </h4>
+                        <div style="color: #2c3e50;">
+                            <p style="margin-bottom: 1rem;"><strong>Based on your AI analysis:</strong></p>
+                            <ul style="margin: 1rem 0; padding-left: 1.5rem; line-height: 1.6;">
+                                <li style="margin-bottom: 0.5rem;">Consider scheduling a consultation with our dermatologists</li>
+                                <li style="margin-bottom: 0.5rem;">Keep track of any changes in your symptoms over time</li>
+                                <li style="margin-bottom: 0.5rem;">Take photos to document progression if safe to do so</li>
+                                <li style="margin-bottom: 0.5rem;">Contact us immediately if symptoms worsen</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+
+                this.resultsContainer.innerHTML = html;
+                
+                // FIXED: Force visibility
+                this.resultsSection.classList.remove('hidden');
+                this.resultsSection.style.display = 'block';
+                this.resultsSection.style.opacity = '1';
+                this.resultsSection.style.visibility = 'visible';
+                
+                // Scroll to results
+                setTimeout(() => {
+                    this.resultsSection.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 100);
+                
+                console.log('Results displayed successfully');
+            }
+
+            parseUrgency(aiResponse) {
+                const response = aiResponse.toLowerCase();
+                
+                if (response.includes('high urgency') || response.includes('urgent') || 
+                    response.includes('immediate') || response.includes('emergency')) {
+                    return {
+                        level: 'HIGH',
+                        class: 'urgency-high',
+                        message: 'Seek immediate medical attention - symptoms may require urgent care'
+                    };
+                } else if (response.includes('medium urgency') || response.includes('moderate') || 
+                           response.includes('soon') || response.includes('within')) {
+                    return {
+                        level: 'MEDIUM',
+                        class: 'urgency-medium',
+                        message: 'Schedule appointment within 1-2 weeks - symptoms warrant professional evaluation'
+                    };
+                } else {
+                    return {
+                        level: 'LOW',
+                        class: 'urgency-low',
+                        message: 'Monitor symptoms - routine consultation recommended'
+                    };
+                }
+            }
+
+            cleanMarkdownToHTML(text) {
+                if (!text || text.trim() === '') {
+                    return '<p><em>No detailed analysis available. Please consult with our dermatologists.</em></p>';
+                }
+
+                let cleanText = text.trim();
+                
+                // Convert headers
+                cleanText = cleanText.replace(/^### (.+)$/gm, '<h4 style="color: #2c5aa0; margin: 1.5rem 0 1rem 0; font-weight: 600;">$1</h4>');
+                cleanText = cleanText.replace(/^## (.+)$/gm, '<h3 style="color: #2c5aa0; margin: 2rem 0 1rem 0; font-weight: 700;">$1</h3>');
+                
+                // Convert bold and italic text
+                cleanText = cleanText.replace(/\*\*(.+?)\*\*/g, '<strong style="color: #2c3e50; font-weight: 600;">$1</strong>');
+                cleanText = cleanText.replace(/\*(.+?)\*/g, '<em style="color: #5d6d7e;">$1</em>');
+                
+                // Process lists
+                const lines = cleanText.split('\n');
+                let inList = false;
+                let processedLines = [];
+                
+                for (let i = 0; i < lines.length; i++) {
+                    const line = lines[i].trim();
+                    
+                    if (line.match(/^[\*\-\+]\s+(.+)/) || line.match(/^\d+\.\s+(.+)/)) {
+                        if (!inList) {
+                            processedLines.push('<ul style="margin: 1rem 0; padding-left: 1.5rem; color: #2c3e50;">');
+                            inList = true;
+                        }
+                        
+                        const content = line.replace(/^[\*\-\+]\s+/, '').replace(/^\d+\.\s+/, '');
+                        processedLines.push(`<li style="margin-bottom: 0.5rem; line-height: 1.6;">${content}</li>`);
+                    } else {
+                        if (inList) {
+                            processedLines.push('</ul>');
+                            inList = false;
+                        }
+                        
+                        if (line !== '') {
+                            processedLines.push(line);
+                        }
+                    }
+                }
+                
+                if (inList) {
+                    processedLines.push('</ul>');
+                }
+                
+                cleanText = processedLines.join('\n');
+                
+                // Convert paragraphs
+                const paragraphs = cleanText.split('\n\n').filter(p => p.trim() !== '');
+                const htmlParagraphs = paragraphs.map(paragraph => {
+                    const trimmed = paragraph.trim();
+                    
+                    if (trimmed.startsWith('<') || trimmed.includes('</')) {
+                        return trimmed;
+                    }
+                    
+                    const withBreaks = trimmed.replace(/\n/g, '<br>');
+                    return `<p style="margin-bottom: 1rem; line-height: 1.7; color: #2c3e50;">${withBreaks}</p>`;
+                });
+                
+                return htmlParagraphs.join('\n');
+            }
+
+            setLoadingState(isLoading) {
+                if (isLoading) {
+                    this.analyzeBtn.disabled = true;
+                    this.analyzeBtn.innerHTML = `
+                        <div class="loading">
+                            <div class="spinner"></div>
+                            <span>AI is analyzing your symptoms...</span>
+                        </div>
+                    `;
+                } else {
+                    this.analyzeBtn.disabled = false;
+                    this.analyzeBtn.innerHTML = `
+                        <i class="fas fa-robot"></i>
+                        Analyze My Symptoms with AI
+                    `;
+                }
+            }
+
+            handleAnalysisError(error) {
+                let errorMessage = 'Unable to analyze symptoms at this time.';
+                
+                if (error.message.includes('429')) {
+                    errorMessage = 'API rate limit exceeded. Please try again in a few minutes.';
+                } else if (error.message.includes('403')) {
+                    errorMessage = 'API access denied. Please contact administrator.';
+                } else if (error.message.includes('Network')) {
+                    errorMessage = 'Network connection issue. Please check your internet connection.';
+                }
+                
+                this.showError(errorMessage);
+            }
+
+            showError(message) {
+                const errorHtml = `
+                    <div class="error-message fade-in">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <strong>Analysis Error:</strong> ${message}
+                        <div style="margin-top: 1rem;">
+                            <p><strong>You can still get help:</strong></p>
+                            <ul style="margin: 0.5rem 0; padding-left: 1.5rem; line-height: 1.6;">
+                                <li><a href="./appointments.html" style="color: #2c5aa0;">Schedule a consultation</a> with our dermatologists</li>
+                                <li><a href="./contact.html" style="color: #2c5aa0;">Contact us directly</a> for immediate assistance</li>
+                                <li>Call our clinic at <strong>(555) 123-4567</strong> for urgent concerns</li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+
+                this.resultsContainer.innerHTML = errorHtml;
+                
+                // FIXED: Force error visibility
+                this.resultsSection.classList.remove('hidden');
+                this.resultsSection.style.display = 'block';
+                this.resultsSection.style.opacity = '1';
+                this.resultsSection.style.visibility = 'visible';
+                
+                this.resultsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            if (document.getElementById('analyze-btn')) {
+                try {
+                    window.symptomChecker = new SymptomChecker();
+                    console.log('Symptom Checker initialized successfully');
+                } catch (error) {
+                    console.error('Failed to initialize Symptom Checker:', error);
+                }
+            }
+        });
+    </script>
+</body>
+</html>

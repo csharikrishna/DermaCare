@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Comprehensive dermatology services including medical dermatology, cosmetic treatments, laser therapy, skin cancer screening, and AI-powered diagnostics at DermaCare.">
+    <meta name="keywords" content="dermatology services, acne treatment, skin cancer screening, botox, laser therapy, eczema treatment, psoriasis care, cosmetic dermatology">
+    <meta name="author" content="Dermatology Clinic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdermatologysite.com/pages/services.html">
+    <meta property="og:title" content="Comprehensive Dermatology Services | Medical & Cosmetic Treatments">
+    <meta property="og:description" content="Expert dermatology services including medical treatments, cosmetic procedures, and AI-powered diagnostics for all your skin health needs.">
+    <meta property="og:image" content="../images/services-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdermatologysite.com/pages/services.html">
+    <meta property="twitter:title" content="Comprehensive Dermatology Services | Medical & Cosmetic Treatments">
+    <meta property="twitter:description" content="Expert dermatology services for all your skin health needs.">
+    <meta property="twitter:image" content="../images/services-og.jpg">
+
+    <title>Comprehensive Dermatology Services | Medical & Cosmetic Treatments - DermaCare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .services-hero {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(74, 123, 200, 0.9));
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        
+        .services-nav {
+            background: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+        }
+        
+        .services-nav-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .service-nav-item {
+            padding: 0.75rem 1.5rem;
+            background: var(--bg-light);
+            border-radius: 25px;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+        
+        .service-nav-item:hover,
+        .service-nav-item.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .service-section {
+            padding: 4rem 0;
+        }
+        
+        .service-section:nth-child(even) {
+            background: var(--bg-section);
+        }
+        
+        .service-category-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .category-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-detailed-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        
+        .service-detailed-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .service-description {
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features li {
+            padding: 0.3rem 0;
+            color: var(--text-medium);
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        
+        .service-price-range {
+            background: var(--bg-light);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .price-label {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            margin-bottom: 0.3rem;
+        }
+        
+        .price-range {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+        
+        .service-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-learn-more {
+            flex: 1;
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .btn-learn-more:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-book-service {
+            flex: 1;
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 1rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 500;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .btn-book-service:hover {
+            background: var(--secondary-light);
+            transform: translateY(-2px);
+        }
+        
+        .before-after-section {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+        
+        .before-after-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .before-after-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .before-after-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .before-after-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .before-label,
+        .after-label {
+            position: absolute;
+            top: 10px;
+            padding: 0.3rem 0.8rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 15px;
+        }
+        
+        .before-label {
+            left: 10px;
+        }
+        
+        .after-label {
+            right: 10px;
+        }
+        
+        .before-after-info {
+            padding: 1.5rem;
+        }
+        
+        .treatment-name {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .treatment-details {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+        
+        .faq-section {
+            padding: 5rem 0;
+            background: var(--bg-section);
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            background: white;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:hover {
+            background: var(--bg-light);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            display: none;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .faq-toggle {
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .consultation-cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .insurance-info {
+            padding: 3rem 0;
+            background: var(--bg-light);
+            text-align: center;
+        }
+        
+        .insurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        
+        .insurance-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .insurance-logo {
+            width: 80px;
+            height: 50px;
+            object-fit: contain;
+            margin: 0 auto;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../images/logo.png" alt="Dermatology Clinic Logo" class="logo">
+                    <span class="logo-text">DermaCare</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./services.html" class="nav-link active">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./doctors.html" class="nav-link">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./symptom-checker.html" class="nav-link">Symptom Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./appointments.html" class="nav-link btn-appointment">Book Appointment</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="services-hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    Comprehensive Dermatology Services
+                </h1>
+<p class="hero-description" style="font-size: 1.3rem; margin: 1.5rem auto; max-width: 800px; color: #F0F0F0  ;">
+    From medical treatments to cosmetic procedures, our expert dermatologists provide complete skin health solutions using the latest technology and evidence-based practices.
+</p>
+
+            </div>
+        </section>
+
+        <!-- Services Navigation -->
+ 
+
+        <!-- Medical Dermatology Section -->
+        <section id="medical" class="service-section">
+            <div class="container">
+                <div class="service-category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h2 class="section-title">Medical Dermatology</h2>
+                    <p class="section-subtitle">Comprehensive diagnosis and treatment of skin diseases and conditions</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/acne-treatment.png" alt="Acne Treatment" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Acne Treatment</h3>
+                            <p class="service-description">
+                                Comprehensive acne treatment using the latest therapies including topical treatments, oral medications, and advanced procedures to achieve clear, healthy skin.
+                            </p>
+                            <ul class="service-features">
+                                <li>Hormonal acne management</li>
+                                <li>Cystic acne treatment</li>
+                                <li>Acne scarring prevention</li>
+                                <li>Customized treatment plans</li>
+                                <li>Follow-up care and monitoring</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Treatment starts from</div>
+                                <div class="price-range">$150 - $400</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/eczema-treatment.png" alt="Eczema Treatment" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Eczema & Dermatitis Care</h3>
+                            <p class="service-description">
+                                Expert management of eczema, contact dermatitis, and other inflammatory skin conditions with personalized treatment approaches.
+                            </p>
+                            <ul class="service-features">
+                                <li>Atopic dermatitis treatment</li>
+                                <li>Contact dermatitis diagnosis</li>
+                                <li>Allergy testing</li>
+                                <li>Moisturizing therapy programs</li>
+                                <li>Lifestyle modification guidance</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Consultation starts from</div>
+                                <div class="price-range">$200 - $350</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/skin-cancer-screening.png" alt="Skin Cancer Screening" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Skin Cancer Screening</h3>
+                            <p class="service-description">
+                                Comprehensive skin cancer screenings using advanced dermoscopy and digital mapping for early detection and prevention.
+                            </p>
+                            <ul class="service-features">
+                                <li>Full-body skin examination</li>
+                                <li>Dermoscopy analysis</li>
+                                <li>Mole mapping technology</li>
+                                <li>Biopsy services</li>
+                                <li>Annual screening programs</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Screening starts from</div>
+                                <div class="price-range">$250 - $450</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/psoriasis-treatment.png" alt="Psoriasis Treatment" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Psoriasis Management</h3>
+                            <p class="service-description">
+                                Advanced psoriasis treatment including biologics, light therapy, and comprehensive care plans for long-term management.
+                            </p>
+                            <ul class="service-features">
+                                <li>Biologic therapy</li>
+                                <li>Phototherapy treatment</li>
+                                <li>Topical treatment programs</li>
+                                <li>Lifestyle counseling</li>
+                                <li>Ongoing monitoring</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Treatment starts from</div>
+                                <div class="price-range">$300 - $800</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cosmetic Dermatology Section -->
+        <section id="cosmetic" class="service-section">
+            <div class="container">
+                <div class="service-category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h2 class="section-title">Cosmetic Dermatology</h2>
+                    <p class="section-subtitle">Aesthetic treatments to enhance your natural beauty and boost confidence</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/botox-fillers.png" alt="Botox and Fillers" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Botox & Dermal Fillers</h3>
+                            <p class="service-description">
+                                Professional injectable treatments to reduce wrinkles, restore volume, and enhance facial contours with natural-looking results.
+                            </p>
+                            <ul class="service-features">
+                                <li>Botox for dynamic wrinkles</li>
+                                <li>Hyaluronic acid fillers</li>
+                                <li>Lip enhancement</li>
+                                <li>Cheek augmentation</li>
+                                <li>Non-surgical facelift</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Treatment starts from</div>
+                                <div class="price-range">$300 - $1,200</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/laser-therapy.png" alt="Laser Treatments" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Laser Treatments</h3>
+                            <p class="service-description">
+                                Advanced laser technology for skin resurfacing, hair removal, pigmentation treatment, and vascular lesion removal.
+                            </p>
+                            <ul class="service-features">
+                                <li>Fractional laser resurfacing</li>
+                                <li>IPL photofacials</li>
+                                <li>Laser hair removal</li>
+                                <li>Pigmentation removal</li>
+                                <li>Vascular lesion treatment</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Session starts from</div>
+                                <div class="price-range">$400 - $1,500</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/chemical-peels.png" alt="Chemical Peels" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Chemical Peels</h3>
+                            <p class="service-description">
+                                Customized chemical peels to improve skin texture, reduce fine lines, and address pigmentation issues for a radiant complexion.
+                            </p>
+                            <ul class="service-features">
+                                <li>Light to deep peels</li>
+                                <li>Glycolic acid peels</li>
+                                <li>TCA peels</li>
+                                <li>Acne scar improvement</li>
+                                <li>Anti-aging benefits</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Peel starts from</div>
+                                <div class="price-range">$150 - $600</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/microneedling.png" alt="Microneedling" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Microneedling & RF</h3>
+                            <p class="service-description">
+                                Advanced microneedling with radiofrequency to stimulate collagen production, improve skin texture, and reduce scarring.
+                            </p>
+                            <ul class="service-features">
+                                <li>Collagen induction therapy</li>
+                                <li>Radiofrequency enhancement</li>
+                                <li>Acne scar treatment</li>
+                                <li>Skin tightening</li>
+                                <li>Pore size reduction</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Session starts from</div>
+                                <div class="price-range">$350 - $800</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Diagnostics Section -->
+        <section id="ai" class="service-section">
+            <div class="container">
+                <div class="service-category-header">
+                    <div class="category-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h2 class="section-title">AI-Powered Diagnostics</h2>
+                    <p class="section-subtitle">Cutting-edge artificial intelligence for enhanced diagnostic accuracy and patient care</p>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/ai-symptom-checker.png" alt="AI Symptom Checker" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">Watson Assistant Symptom Checker</h3>
+                            <p class="service-description">
+                                Revolutionary AI-powered symptom analysis that provides instant preliminary assessments and personalized recommendations 24/7.
+                            </p>
+                            <ul class="service-features">
+                                <li>Instant symptom analysis</li>
+                                <li>24/7 availability</li>
+                                <li>Personalized recommendations</li>
+                                <li>Professional follow-up integration</li>
+                                <li>Educational resources</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Service</div>
+                                <div class="price-range">FREE</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="./symptom-checker.html" class="btn-learn-more">Try Now</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Follow-up</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-detailed-card">
+                        <img src="../images/treatments/digital-dermoscopy.png" alt="Digital Dermoscopy" class="service-image">
+                        <div class="service-content">
+                            <h3 class="service-title">AI-Enhanced Dermoscopy</h3>
+                            <p class="service-description">
+                                Advanced digital dermoscopy with AI assistance for improved accuracy in detecting skin cancer and other lesions.
+                            </p>
+                            <ul class="service-features">
+                                <li>High-resolution imaging</li>
+                                <li>AI pattern recognition</li>
+                                <li>Digital documentation</li>
+                                <li>Comparison analysis</li>
+                                <li>Enhanced diagnostic accuracy</li>
+                            </ul>
+                            <div class="service-price-range">
+                                <div class="price-label">Analysis starts from</div>
+                                <div class="price-range">$200 - $400</div>
+                            </div>
+                            <div class="service-actions">
+                                <a href="#" class="btn-learn-more">Learn More</a>
+                                <a href="./appointments.html" class="btn-book-service">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before & After Gallery -->
+        <section class="before-after-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Treatment Results</h2>
+                    <p class="section-subtitle">See the transformative results achieved by our expert dermatologists</p>
+                </div>
+                
+                <div class="before-after-grid">
+                    <div class="before-after-card">
+                        <div class="before-after-images" style="position: relative;">
+                            <img src="../images/treatments/before-acne.png" alt="Before Acne Treatment" class="before-after-img">
+                            <img src="../images/treatments/after-acne.png" alt="After Acne Treatment" class="before-after-img">
+                            <span class="before-label">Before</span>
+                            <span class="after-label">After</span>
+                        </div>
+                        <div class="before-after-info">
+                            <div class="treatment-name">Acne Treatment</div>
+                            <div class="treatment-details">6 months of comprehensive acne therapy</div>
+                        </div>
+                    </div>
+                    
+                    <div class="before-after-card">
+                        <div class="before-after-images" style="position: relative;">
+                            <img src="../images/treatments/before-laser.jpg" alt="Before Laser Treatment" class="before-after-img">
+                            <img src="../images/treatments/after-laser.jpg" alt="After Laser Treatment" class="before-after-img">
+                            <span class="before-label">Before</span>
+                            <span class="after-label">After</span>
+                        </div>
+                        <div class="before-after-info">
+                            <div class="treatment-name">Laser Resurfacing</div>
+                            <div class="treatment-details">3 sessions of fractional laser treatment</div>
+                        </div>
+                    </div>
+                    
+                    <div class="before-after-card">
+                        <div class="before-after-images" style="position: relative;">
+                            <img src="../images/treatments/before-botox.png" alt="Before Botox" class="before-after-img">
+                            <img src="../images/treatments/after-botox.png" alt="After Botox" class="before-after-img">
+                            <span class="before-label">Before</span>
+                            <span class="after-label">After</span>
+                        </div>
+                        <div class="before-after-info">
+                            <div class="treatment-name">Botox & Fillers</div>
+                            <div class="treatment-details">Non-surgical facial rejuvenation</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Frequently Asked Questions</h2>
+                    <p class="section-subtitle">Common questions about our services and treatments</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How do I know which treatment is right for me?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Our dermatologists conduct thorough consultations to assess your skin condition, medical history, and aesthetic goals. We also offer our AI symptom checker for preliminary guidance. Based on this comprehensive evaluation, we recommend the most suitable treatment plan for your specific needs.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Are your treatments covered by insurance?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Medical dermatology treatments for conditions like acne, eczema, psoriasis, and skin cancer are typically covered by most insurance plans. Cosmetic procedures are generally not covered. We accept most major insurance providers and offer flexible payment options for cosmetic treatments.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How accurate is the AI symptom checker?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Our Watson Assistant AI has been trained on extensive dermatological data and provides highly accurate preliminary assessments. However, it's designed to supplement, not replace, professional medical consultation. We always recommend following up with our dermatologists for definitive diagnosis and treatment.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What should I expect during my first visit?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Your first visit includes a comprehensive consultation, medical history review, and thorough skin examination. Our dermatologist will discuss your concerns, explain findings, and recommend appropriate treatment options. We'll also provide detailed information about any proposed procedures and answer all your questions.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How long do cosmetic treatment results last?
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            Results vary by treatment type: Botox typically lasts 3-4 months, dermal fillers 6-18 months depending on the type, laser treatments show progressive improvement over several months, and chemical peels provide lasting results with proper skincare maintenance. We'll discuss expected duration during your consultation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insurance Information -->
+        <section class="insurance-info">
+            <div class="container">
+                <h2 style="margin-bottom: 1rem; color: var(--text-dark);">Insurance & Payment Options</h2>
+                <p style="margin-bottom: 2rem; color: var(--text-medium);">We accept most major insurance providers and offer flexible payment options</p>
+                
+                <div class="insurance-grid">
+                    <div class="insurance-item">
+                        <div class="insurance-logo" style="background: url('../images/icons/aetna-logo.png') center/contain no-repeat;"></div>
+                        <h4>Aetna</h4>
+                    </div>
+                    <div class="insurance-item">
+                        <div class="insurance-logo" style="background: url('../images/icons/bluecross-logo.png') center/contain no-repeat;"></div>
+                        <h4>Blue Cross</h4>
+                    </div>
+                    <div class="insurance-item">
+                        <div class="insurance-logo" style="background: url('../images/icons/cigna-logo.png') center/contain no-repeat;"></div>
+                        <h4>Cigna</h4>
+                    </div>
+                    <div class="insurance-item">
+                        <div class="insurance-logo" style="background: url('../images/icons/medicare-logo.png') center/contain no-repeat;"></div>
+                        <h4>Medicare</h4>
+                    </div>
+                    <div class="insurance-item">
+                        <div class="insurance-logo" style="background: url('../images/icons/united-logo.png') center/contain no-repeat;"></div>
+                        <h4>United Healthcare</h4>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Consultation CTA -->
+        <section class="consultation-cta">
+            <div class="container">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-family: var(--font-heading);">
+                    Ready to Start Your Skin Health Journey?
+                </h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Schedule a consultation with our expert dermatologists or try our AI symptom checker to get started. 
+                    We're here to help you achieve your healthiest, most beautiful skin.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="./appointments.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-calendar-alt"></i> Schedule Consultation
+                    </a>
+                    <a href="./symptom-checker.html" class="btn btn-outline" style="border-color: white; color: white;">
+                        <i class="fas fa-robot"></i> Try AI Symptom Checker
+                    </a>
+                    <a href="./contact.html" class="btn btn-outline" style="border-color: white; color: white;">
+                        <i class="fas fa-phone"></i> Contact Us
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="DermaCare Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">DermaCare</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional dermatology services combining expert medical care with advanced AI technology for comprehensive skin health solutions.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100034414012497" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/harikrishnacs__" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/harikrishnacs__/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="http://www.linkedin.com/in/cs-harikrishna" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Our Services</a></li>
+                        <li><a href="./doctors.html">Meet Our Doctors</a></li>
+                        <li><a href="./symptom-checker.html">Symptom Checker</a></li>
+                        <li><a href="./appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#medical">Medical Dermatology</a></li>
+                        <li><a href="#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="#pediatric">Pediatric Dermatology</a></li>
+                        <li><a href="#surgery">Dermatologic Surgery</a></li>
+                        <li><a href="#ai">AI Diagnostics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Center Dr.<br>Healthcare City, HC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@dermacare.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 DermaCare. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="./privacy.html">Privacy Policy</a>
+                        <a href="./terms.html">Terms of Service</a>
+                        <a href="./hipaa.html">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+ 
+
+    <!-- Scripts -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="./js/watson-integration.js"></script>
+    <script src="../js/appointment.js"></script>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const faqAnswer = faqItem.querySelector('.faq-answer');
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all FAQ items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').classList.remove('active');
+                    });
+                    
+                    // Open clicked item if it wasn't active
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                        faqAnswer.classList.add('active');
+                    }
+                });
+            });
+            
+            // Smooth scrolling for service navigation
+            const serviceNavItems = document.querySelectorAll('.service-nav-item');
+            serviceNavItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        const offsetTop = targetSection.offsetTop - 100;
+                        window.scrollTo({
+                            top: offsetTop,
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Update active state
+                    serviceNavItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+    <script type="application/javascript">
+        window.watsonAssistantChatOptions = {
+        integrationID: "c02b9cba-16d9-4091-bba0-3f9793c17147",
+        region: "us-south",
+        serviceInstanceID: "facfb8a8-7bfe-4a6d-9b2a-e40e7efda404",
+        onLoad: async (instance) => { await instance.render(); }
+        };
+
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+                (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+                "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    </script>
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalBusiness",
+        "name": "DermaCare Dermatology Services",
+        "description": "Comprehensive dermatology services including medical treatments, cosmetic procedures, and AI-powered diagnostics",
+        "url": "https://yourdermatologysite.com/pages/services.html",
+        "medicalSpecialty": ["Dermatology", "Cosmetic Dermatology", "Pediatric Dermatology"],
+        "availableService": [
+            {
+                "@type": "MedicalTherapy",
+                "name": "Acne Treatment",
+                "description": "Comprehensive acne treatment and management"
+            },
+            {
+                "@type": "MedicalTherapy",
+                "name": "Skin Cancer Screening",
+                "description": "Professional skin cancer detection and screening"
+            },
+            {
+                "@type": "MedicalTherapy",
+                "name": "Botox and Fillers",
+                "description": "Cosmetic injectable treatments"
+            },
+            {
+                "@type": "MedicalTherapy",
+                "name": "AI Symptom Analysis",
+                "description": "AI-powered skin condition analysis"
+            }
+        ]
+    }
+    </script>
+</body>
+</html>
+
+

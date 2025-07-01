@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about DermaCare - leading dermatology clinic combining expert medical care with advanced AI technology. Meet our board-certified dermatologists and discover our mission.">
+    <meta name="keywords" content="about dermatology clinic, board certified dermatologists, medical team, dermatology experts, skin care specialists">
+    <meta name="author" content="Dermatology Clinic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdermatologysite.com/pages/about.html">
+    <meta property="og:title" content="About DermaCare | Expert Dermatology Team & Advanced Care">
+    <meta property="og:description" content="Learn about our expert dermatology team, advanced AI technology, and commitment to exceptional skin care.">
+    <meta property="og:image" content="../images/about-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdermatologysite.com/pages/about.html">
+    <meta property="twitter:title" content="About DermaCare | Expert Dermatology Team & Advanced Care">
+    <meta property="twitter:description" content="Learn about our expert dermatology team and advanced care approach.">
+    <meta property="twitter:image" content="../images/about-og.jpg">
+
+    <title>About DermaCare | Expert Dermatology Team & Advanced Care</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Page Specific Styles -->
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(74, 123, 200, 0.9)), url('../images/hero-banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        
+        .stats-section {
+            background: linear-gradient(135deg, #2c5aa0, #4a7bc8);
+            color: white;
+            padding: 4rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 1rem;
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: var(--font-heading);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .mission-vision {
+            padding: 5rem 0;
+            background: var(--bg-section);
+        }
+        
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
+        .mission-card {
+            background: white;
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+        }
+        
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px 15px 0 0;
+        }
+        
+        .mission-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .values-section {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .value-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--secondary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .history-timeline {
+            padding: 5rem 0;
+            background: var(--bg-section);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+            border-radius: 2px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 3rem;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            text-align: left;
+            padding-left: 3rem;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-left-color: white;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border: 15px solid transparent;
+            border-right-color: white;
+        }
+        
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            top: -15px;
+        }
+        
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .timeline-description {
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+        
+        .team-leadership {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+        
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .leader-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .leader-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+        
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .leader-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 2rem;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .leader-name {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .leader-title {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .leader-bio {
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .leader-credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .credential-tag {
+            background: var(--bg-light);
+            color: var(--text-medium);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .accreditations {
+            padding: 4rem 0;
+            background: var(--bg-section);
+            text-align: center;
+        }
+        
+        .accreditation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .accreditation-item {
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+        
+        .accreditation-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .accreditation-item:hover .accreditation-logo {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        
+        .cta-about {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../images/logo.png" alt="Dermatology Clinic Logo" class="logo">
+                    <span class="logo-text">DermaCare</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./about.html" class="nav-link active">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./doctors.html" class="nav-link">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./symptom-checker.html" class="nav-link">Symptom Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./appointments.html" class="nav-link btn-appointment">Book Appointment</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <h1 class="hero-title">
+                    About DermaCare
+                </h1>
+                <p class="hero-description" style="font-size: 1.3rem; margin: 1.5rem auto; max-width: 800px; color: #F0F0F0  ">
+                    Leading dermatology practice combining decades of medical expertise with cutting-edge AI technology to deliver exceptional skin care solutions for every patient.
+                </p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section" style="color: #fff;">
+            <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                <span class="stat-number" style="color: #fff;">15+</span>
+                <span class="stat-label" style="color: #fff;">Years of Excellence</span>
+                </div>
+                <div class="stat-item">
+                <span class="stat-number" style="color: #fff;">25,000+</span>
+                <span class="stat-label" style="color: #fff;">Patients Treated</span>
+                </div>
+                <div class="stat-item">
+                <span class="stat-number" style="color: #fff;">8</span>
+                <span class="stat-label" style="color: #fff;">Board-Certified Doctors</span>
+                </div>
+                <div class="stat-item">
+                <span class="stat-number" style="color: #fff;">98%</span>
+                <span class="stat-label" style="color: #fff;">Patient Satisfaction</span>
+                </div>
+                <div class="stat-item">
+                <span class="stat-number" style="color: #fff;">24/7</span>
+                <span class="stat-label" style="color: #fff;">AI Support Available</span>
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="mission-vision">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Mission & Vision</h2>
+                    <p class="section-subtitle">Committed to advancing dermatological care through innovation and expertise</p>
+                </div>
+                
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark);">Our Mission</h3>
+                        <p style="color: var(--text-medium); line-height: 1.7; font-size: 1.1rem;">
+                            To provide exceptional dermatological care by combining the expertise of board-certified dermatologists with innovative AI technology, ensuring every patient receives personalized, comprehensive, and accessible skin health solutions.
+                        </p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <div class="mission-icon">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-dark);">Our Vision</h3>
+                        <p style="color: var(--text-medium); line-height: 1.7; font-size: 1.1rem;">
+                            To be the leading dermatology practice that sets the standard for integrating artificial intelligence with traditional medical care, making expert dermatological consultation accessible to all while advancing the future of skin health.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Core Values</h2>
+                    <p class="section-subtitle">The principles that guide everything we do</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-dark);">Clinical Excellence</h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            We maintain the highest standards of medical practice, ensuring every diagnosis and treatment plan is based on the latest evidence-based medicine and clinical expertise.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-dark);">Innovation</h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            We embrace cutting-edge technology like AI-powered diagnostics to enhance patient care, improve accuracy, and make expert dermatological insights more accessible.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-dark);">Compassionate Care</h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            Every patient is treated with empathy, respect, and understanding. We believe in creating a comfortable, supportive environment for all skin health concerns.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-dark);">Accessibility</h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            We believe everyone deserves access to quality dermatological care. Our AI tools and flexible scheduling options make expert consultation more available to all.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-dark);">Continuous Learning</h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            We stay at the forefront of dermatological advances through ongoing education, research participation, and collaboration with leading medical institutions.
+                        </p>
+                    </div>
+                    
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-dark);">Privacy & Trust</h3>
+                        <p style="color: var(--text-medium); line-height: 1.6;">
+                            Patient privacy and data security are paramount. We maintain strict HIPAA compliance and use secure, encrypted systems for all patient information.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- History Timeline -->
+        <section class="history-timeline">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Journey</h2>
+                    <p class="section-subtitle">Milestones in our commitment to exceptional dermatological care</p>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2009</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Foundation</h3>
+                            <p class="timeline-description">
+                                DermaCare was founded by Dr. Sarah Smith with a vision to provide comprehensive, patient-centered dermatological care in our community.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2012</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Expansion</h3>
+                            <p class="timeline-description">
+                                Added cosmetic dermatology services and expanded our team to include specialists in pediatric dermatology and dermatopathology.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Technology Integration</h3>
+                            <p class="timeline-description">
+                                Implemented advanced laser technology and began exploring digital health solutions to improve patient outcomes and accessibility.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2020</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Telemedicine Pioneer</h3>
+                            <p class="timeline-description">
+                                Launched comprehensive telemedicine services, ensuring continuous patient care during challenging times and expanding access to rural communities.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">AI Integration</h3>
+                            <p class="timeline-description">
+                                Became the first clinic in our region to integrate Watson Assistant AI for symptom analysis, revolutionizing patient triage and education.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3 class="timeline-title">Future Forward</h3>
+                            <p class="timeline-description">
+                                Continuing to lead in dermatological innovation with new AI capabilities, research partnerships, and commitment to accessible healthcare.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Team -->
+        <section class="team-leadership">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Leadership Team</h2>
+                    <p class="section-subtitle">Meet the experts leading our mission of excellence in dermatological care</p>
+                </div>
+                
+                <div class="leadership-grid">
+                    <div class="leader-card">
+                        <img src="../images/doctors/dr-smith.png" alt="Dr. Arjun Reddy" class="leader-image">
+                        <h3 class="leader-name">Dr. Arjun Reddy</h3>
+                        <p class="leader-title">Founder & Chief Medical Officer</p>
+                        <p class="leader-bio">
+                            With over 15 years of experience in dermatology, Dr. Arjun specializes in medical dermatology and skin cancer prevention. She is a pioneer in integrating AI technology with traditional dermatological practice.
+                        </p>
+                        <div class="leader-credentials">
+                            <span class="credential-tag">MD, Johns Hopkins</span>
+                            <span class="credential-tag">Board Certified</span>
+                            <span class="credential-tag">Fellowship Trained</span>
+                        </div>
+                    </div>
+                    
+                    <div class="leader-card">
+                        <img src="../images/doctors/dr-johnson.png" alt="Dr. Jonny Depp" class="leader-image">
+                        <h3 class="leader-name">Dr. Jonny Depp</h3>
+                        <p class="leader-title">Director of Cosmetic Dermatology</p>
+                        <p class="leader-bio">
+                            Dr. Jonny brings 12 years of expertise in cosmetic dermatology and laser treatments. He leads our aesthetic services division and research initiatives in advanced cosmetic procedures.
+                        </p>
+                        <div class="leader-credentials">
+                            <span class="credential-tag">MD, Harvard Medical</span>
+                            <span class="credential-tag">Laser Specialist</span>
+                            <span class="credential-tag">Cosmetic Expert</span>
+                        </div>
+                    </div>
+                    
+                    <div class="leader-card">
+                        <img src="../images/doctors/dr-strange.png" alt="Dr. Strange" class="leader-image">
+                        <h3 class="leader-name">Dr. Strange</h3>
+                        <p class="leader-title">Head of Pediatric Dermatology</p>
+                        <p class="leader-bio">
+                            Specializing in pediatric and adolescent dermatology, Dr. Strange has 10 years of experience treating children's skin conditions. She leads our family-friendly care initiatives and educational programs.
+                        </p>
+                        <div class="leader-credentials">
+                            <span class="credential-tag">MD, Stanford</span>
+                            <span class="credential-tag">Pediatric Specialist</span>
+                            <span class="credential-tag">Research Active</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accreditations -->
+        <section class="accreditations">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Accreditations & Certifications</h2>
+                    <p class="section-subtitle">Recognized by leading medical organizations for our commitment to excellence</p>
+                </div>
+                
+                <div class="accreditation-grid">
+                    <div class="accreditation-item">
+                        <div class="accreditation-logo">
+                            <i class="fas fa-certificate" style="font-size: 3rem; color: var(--primary-color);"></i>
+                        </div>
+                        <h4>American Academy of Dermatology</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-medium);">AAD Certified Practice</p>
+                    </div>
+                    
+                    <div class="accreditation-item">
+                        <div class="accreditation-logo">
+                            <i class="fas fa-medal" style="font-size: 3rem; color: var(--primary-color);"></i>
+                        </div>
+                        <h4>Board Certification</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-medium);">All physicians board certified</p>
+                    </div>
+                    
+                    <div class="accreditation-item">
+                        <div class="accreditation-logo">
+                            <i class="fas fa-shield-alt" style="font-size: 3rem; color: var(--primary-color);"></i>
+                        </div>
+                        <h4>HIPAA Compliant</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-medium);">Full privacy protection</p>
+                    </div>
+                    
+                    <div class="accreditation-item">
+                        <div class="accreditation-logo">
+                            <i class="fas fa-star" style="font-size: 3rem; color: var(--primary-color);"></i>
+                        </div>
+                        <h4>Patient Choice Award</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-medium);">Top-rated dermatology practice</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-about">
+            <div class="container">
+                <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-family: var(--font-heading);">
+                    Ready to Experience Excellence?
+                </h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; max-width: 700px; margin-left: auto; margin-right: auto;">
+                    Join thousands of satisfied patients who have trusted DermaCare with their skin health. 
+                    Experience the perfect combination of expert medical care and innovative AI technology.
+                </p>
+                <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                    <a href="./appointments.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-calendar-alt"></i> Schedule Consultation
+                    </a>
+                    <a href="./symptom-checker.html" class="btn btn-outline" style="border-color: white; color: white;">
+                        <i class="fas fa-robot"></i> Try AI Symptom Checker
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="DermaCare Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">DermaCare</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional dermatology services combining expert medical care with advanced AI technology for comprehensive skin health solutions.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100034414012497" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/harikrishnacs__" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/harikrishnacs__/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="http://www.linkedin.com/in/cs-harikrishna" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Our Services</a></li>
+                        <li><a href="./doctors.html">Meet Our Doctors</a></li>
+                        <li><a href="./symptom-checker.html">Symptom Checker</a></li>
+                        <li><a href="./appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="./services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="./services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="./services.html#pediatric">Pediatric Dermatology</a></li>
+                        <li><a href="./services.html#surgery">Dermatologic Surgery</a></li>
+                        <li><a href="./services.html#ai">AI Diagnostics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Center Dr.<br>Healthcare City, HC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@dermacare.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 DermaCare. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="./privacy.html">Privacy Policy</a>
+                        <a href="./terms.html">Terms of Service</a>
+                        <a href="./hipaa.html">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="./js/watson-integration.js"></script>
+    <script src="../js/appointment.js"></script>
+    <script type="application/javascript">
+        window.watsonAssistantChatOptions = {
+        integrationID: "c02b9cba-16d9-4091-bba0-3f9793c17147",
+        region: "us-south",
+        serviceInstanceID: "facfb8a8-7bfe-4a6d-9b2a-e40e7efda404",
+        onLoad: async (instance) => { await instance.render(); }
+        };
+
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+                (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+                "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    </script
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalOrganization",
+        "name": "DermaCare Dermatology Clinic",
+        "description": "Leading dermatology practice combining medical expertise with AI technology",
+        "url": "https://yourdermatologysite.com/pages/about.html",
+        "logo": "https://yourdermatologysite.com/images/logo.png",
+        "telephone": "(555) 123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Medical Center Dr.",
+            "addressLocality": "Healthcare City",
+            "addressRegion": "HC",
+            "postalCode": "12345"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Dr. Sarah Smith",
+            "jobTitle": "Chief Medical Officer"
+        },
+        "foundingDate": "2009",
+        "medicalSpecialty": "Dermatology"
+    }
+    </script>
+</body>
+</html>

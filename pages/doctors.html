@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet the expert dermatologists at DermaCare. Our board-certified doctors provide comprehensive skin care and advanced treatments.">
+    <meta name="keywords" content="dermatologists, dermatology doctors, skin care experts, board certified dermatologists">
+    <meta name="author" content="Dermatology Clinic">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdermatologysite.com/pages/doctors.html">
+    <meta property="og:title" content="Meet Our Expert Dermatologists | DermaCare">
+    <meta property="og:description" content="Meet the expert dermatologists at DermaCare. Board-certified doctors providing advanced skin care treatments.">
+    <meta property="og:image" content="../images/doctors/doctors-og.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://yourdermatologysite.com/pages/doctors.html">
+    <meta property="twitter:title" content="Meet Our Expert Dermatologists | DermaCare">
+    <meta property="twitter:description" content="Meet the expert dermatologists at DermaCare. Board-certified doctors providing advanced skin care treatments.">
+    <meta property="twitter:image" content="../images/doctors/doctors-og.jpg">
+
+    <title>Meet Our Expert Dermatologists | DermaCare</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../images/logo.png">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/chatbot.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Page Specific Styles -->
+    <style>
+        .doctors-hero {
+            background: linear-gradient(135deg, rgba(44, 90, 160, 0.9), rgba(74, 123, 200, 0.9)), url('../images/doctors/clinic-team.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0 4rem;
+            text-align: center;
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e8eb;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .doctor-image {
+            margin-bottom: 1.5rem;
+        }
+        
+        .doctor-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #2c5aa0;
+            margin: 0 auto;
+        }
+        
+        .doctor-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #2c3e50;
+        }
+        
+        .doctor-specialty {
+            color: #2c5aa0;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .doctor-experience {
+            color: #5d6d7e;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .doctor-bio {
+            color: #5d6d7e;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .doctor-specialties {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .specialty-tag {
+            background: #f4f6f8;
+            color: #5d6d7e;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="../images/logo.png" alt="Dermatology Clinic Logo" class="logo">
+                    <span class="logo-text">DermaCare</span>
+                </div>
+                
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./services.html" class="nav-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./doctors.html" class="nav-link active">Doctors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./symptom-checker.html" class="nav-link">Symptom Checker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./contact.html" class="nav-link">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="./appointments.html" class="nav-link btn-appointment">Book Appointment</a>
+                    </li>
+                </ul>
+                
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="doctors-hero">
+            <div class="container">
+                <h1 class="hero-title">Meet Our Expert Dermatologists</h1>
+                <p class="hero-description" style="font-size: 1.2rem; max-width: 700px; margin: 1rem auto; color: #F0F0F0 ">
+                    Our board-certified dermatologists are dedicated to providing comprehensive skin care and advanced treatments tailored to your needs.
+                </p>
+            </div>
+        </section>
+
+        <!-- Doctors Grid -->
+        <section class="doctors-grid container">
+            <article class="doctor-card">
+                <div class="doctor-image">
+                    <img src="../images/doctors/dr-smith.png" alt="Dr. Sarah Smith" class="doctor-img">
+                </div>
+                <h2 class="doctor-name">Dr. Arjun Reddy</h2>
+                <p class="doctor-specialty">Medical Dermatology Specialist</p>
+                <p class="doctor-experience">15+ years experience</p>
+                <p class="doctor-bio">Dr. Arjun Reddy specializes in medical dermatology and skin cancer prevention. She integrates AI technology with traditional dermatological practice to provide personalized care.</p>
+                <div class="doctor-specialties">
+                    <span class="specialty-tag">Acne Treatment</span>
+                    <span class="specialty-tag">Skin Cancer</span>
+                    <span class="specialty-tag">Psoriasis</span>
+                </div>
+            </article>
+
+            <article class="doctor-card">
+                <div class="doctor-image">
+                    <img src="../images/doctors/dr-johnson.png" alt="Dr. Michael Johnson" class="doctor-img">
+                </div>
+                <h2 class="doctor-name">Dr. Johnny Depp</h2>
+                <p class="doctor-specialty">Cosmetic Dermatology Expert</p>
+                <p class="doctor-experience">12+ years experience</p>
+                <p class="doctor-bio">Dr. Johnny Depp leads our cosmetic dermatology division, specializing in laser treatments, injectables, and aesthetic procedures to enhance natural beauty.</p>
+                <div class="doctor-specialties">
+                    <span class="specialty-tag">Laser Therapy</span>
+                    <span class="specialty-tag">Botox & Fillers</span>
+                    <span class="specialty-tag">Chemical Peels</span>
+                </div>
+            </article>
+            <article class="doctor-card">
+                <div class="doctor-image">
+                    <img src="../images/doctors/dr-strange.png" alt="Dr. Strange" class="doctor-img">
+                </div>
+                <h2 class="doctor-name">Dr. Strange</h2>
+                <p class="doctor-specialty">Cosmetic Dermatology Expert</p>
+                <p class="doctor-experience">12+ years experience</p>
+                <p class="doctor-bio">Dr. Strange leads our cosmetic dermatology division, specializing in laser treatments, injectables, and aesthetic procedures to enhance natural beauty.</p>
+                <div class="doctor-specialties">
+                    <span class="specialty-tag">Laser Therapy</span>
+                    <span class="specialty-tag">Botox & Fillers</span>
+                    <span class="specialty-tag">Chemical Peels</span>
+                </div>
+            </article>
+            
+
+            <article class="doctor-card">
+                <div class="doctor-image">
+                    <img src="../images/doctors/dr-davis.png" alt="Dr. Emily Davis" class="doctor-img">
+                </div>
+                <h2 class="doctor-name">Dr. Maaran</h2>
+                <p class="doctor-specialty">Pediatric Dermatology Specialist</p>
+                <p class="doctor-experience">10+ years experience</p>
+                <p class="doctor-bio">Dr. Maaran specializes in pediatric dermatology, providing expert care for children and adolescents with skin conditions and disorders.</p>
+                <div class="doctor-specialties">
+                    <span class="specialty-tag">Pediatric Care</span>
+                    <span class="specialty-tag">Eczema</span>
+                    <span class="specialty-tag">Allergy Testing</span>
+                </div>
+            </article>
+            
+            <article class="doctor-card">
+                <div class="doctor-image">
+                    <img src="../images/doctors/dr-kamal.png" alt="Dr. Vasool Raja" class="doctor-img">
+                </div>
+                <h2 class="doctor-name">Dr. Vasool Raja</h2>
+                <p class="doctor-specialty">Pediatric Dermatology Specialist</p>
+                <p class="doctor-experience">10+ years experience</p>
+                <p class="doctor-bio">Dr. Vasool Raja specializes in pediatric dermatology, providing expert care for children and adolescents with skin conditions and disorders.</p>
+                <div class="doctor-specialties">
+                    <span class="specialty-tag">Pediatric Care</span>
+                    <span class="specialty-tag">Eczema</span>
+                    <span class="specialty-tag">Allergy Testing</span>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="../images/logo.png" alt="DermaCare Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">DermaCare</span>
+                    </div>
+                    <p class="footer-description">
+                        Professional dermatology services combining expert medical care with advanced AI technology for comprehensive skin health solutions.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=100034414012497" class="social-link" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="https://x.com/harikrishnacs__" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/harikrishnacs__/" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="http://www.linkedin.com/in/cs-harikrishna" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="./about.html">About Us</a></li>
+                        <li><a href="./services.html">Our Services</a></li>
+                        <li><a href="./doctors.html">Meet Our Doctors</a></li>
+                        <li><a href="./symptom-checker.html">Symptom Checker</a></li>
+                        <li><a href="./appointments.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="./services.html#medical">Medical Dermatology</a></li>
+                        <li><a href="./services.html#cosmetic">Cosmetic Dermatology</a></li>
+                        <li><a href="./services.html#pediatric">Pediatric Dermatology</a></li>
+                        <li><a href="./services.html#surgery">Dermatologic Surgery</a></li>
+                        <li><a href="./services.html#ai">AI Diagnostics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3 class="footer-title">Contact Info</h3>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>123 Medical Center Dr.<br>Healthcare City, HC 12345</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>(555) 123-4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@dermacare.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Fri: 8AM-6PM<br>Sat: 9AM-4PM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="copyright">© 2025 DermaCare. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="./privacy.html">Privacy Policy</a>
+                        <a href="./terms.html">Terms of Service</a>
+                        <a href="./hipaa.html">HIPAA Compliance</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="../js/utils.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="./js/watson-integration.js"></script>
+    <script src="../js/appointment.js"></script>
+    <script type="application/javascript">
+        window.watsonAssistantChatOptions = {
+        integrationID: "c02b9cba-16d9-4091-bba0-3f9793c17147",
+        region: "us-south",
+        serviceInstanceID: "facfb8a8-7bfe-4a6d-9b2a-e40e7efda404",
+        onLoad: async (instance) => { await instance.render(); }
+        };
+
+        const t = document.createElement('script');
+        t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + 
+                (window.watsonAssistantChatOptions.clientVersion || 'latest') + 
+                "/WatsonAssistantChatEntry.js";
+        document.head.appendChild(t);
+    </script
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "MedicalOrganization",
+        "name": "DermaCare Dermatology Clinic",
+        "description": "Expert dermatologists providing comprehensive skin care and advanced treatments",
+        "url": "https://yourdermatologysite.com/pages/doctors.html",
+        "logo": "https://yourdermatologysite.com/images/logo.png",
+        "telephone": "(555) 123-4567",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Medical Center Dr.",
+            "addressLocality": "Healthcare City",
+            "addressRegion": "HC",
+            "postalCode": "12345"
+        },
+        "founder": {
+            "@type": "Person",
+            "name": "Dr. Sarah Smith",
+            "jobTitle": "Chief Medical Officer"
+        },
+        "medicalSpecialty": "Dermatology"
+    }
+    </script>
+</body>
+</html>
